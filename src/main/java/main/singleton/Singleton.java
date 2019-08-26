@@ -22,7 +22,26 @@ public class Singleton {
     }
 
     public void setAlunosList(Aluno aluno) {
-        this.listAlunos.add(aluno);
+        int x = 0;
+        for (Aluno listAluno : listAlunos) {
+            if (listAluno.getId() == aluno.getId()) {
+                System.out.println("ID em USO");
+                x++;
+            }
+        }
+        if (x < 1) {
+            this.listAlunos.add(aluno);
+        }
+    }
+
+    public void deleteAluno(int id) {
+        int x = 0;
+        for (Aluno listAluno : listAlunos) {
+            if (listAluno.getId() == id) {
+                listAlunos.remove(listAluno);
+            }
+        }
+        System.out.println("Deletado");
     }
 
 }
